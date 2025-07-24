@@ -1,15 +1,14 @@
+/* =========================
+   Tailwind Import
+   ========================= */
 @import "tailwindcss";
 
+/* =========================
+   CSS Variables
+   ========================= */
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,8 +18,159 @@
   }
 }
 
+/* =========================
+   Work Sans Font Faces
+   ========================= */
+@font-face {
+  font-family: 'Work Sans';
+  src: url('/fonts/WorkSans-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Work Sans';
+  src: url('/fonts/WorkSans-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Work Sans';
+  src: url('/fonts/WorkSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Work Sans';
+  src: url('/fonts/WorkSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Work Sans';
+  src: url('/fonts/WorkSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Work Sans';
+  src: url('/fonts/WorkSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Work Sans';
+  src: url('/fonts/WorkSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Work Sans';
+  src: url('/fonts/WorkSans-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Work Sans';
+  src: url('/fonts/WorkSans-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================
+   Base Styles
+   ========================= */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Work Sans', Arial, Helvetica, sans-serif;
 }
+
+/* =========================
+   Tailwind Utility Layers
+   ========================= */
+@layer utilities {
+   /* Custom colors */
+   .text-primary-100 { color: var(--color-primary-100); }
+   .text-primary { color: var(--color-primary); }
+   .text-secondary { color: var(--color-secondary); }
+   .text-black-100 { color: var(--color-black-100); }
+   .text-black-200 { color: var(--color-black-200); }
+   .text-black-300 { color: var(--color-black-300); }
+   .text-black { color: var(--color-black); }
+   .text-white-100 { color: var(--color-white-100); }
+   .text-white { color: var(--color-white); }
+ 
+   .bg-primary-100 { background-color: var(--color-primary-100); }
+   .bg-primary { background-color: var(--color-primary); }
+   .bg-secondary { background-color: var(--color-secondary); }
+   .bg-black-100 { background-color: var(--color-black-100); }
+   .bg-black-200 { background-color: var(--color-black-200); }
+   .bg-black-300 { background-color: var(--color-black-300); }
+   .bg-black { background-color: var(--color-black); }
+   .bg-white-100 { background-color: var(--color-white-100); }
+   .bg-white { background-color: var(--color-white); }
+ 
+   .border-primary-100 { border-color: var(--color-primary-100); }
+   .border-primary { border-color: var(--color-primary); }
+   .border-secondary { border-color: var(--color-secondary); }
+   .border-black-100 { border-color: var(--color-black-100); }
+   .border-black-200 { border-color: var(--color-black-200); }
+   .border-black-300 { border-color: var(--color-black-300); }
+   .border-black { border-color: var(--color-black); }
+   .border-white-100 { border-color: var(--color-white-100); }
+   .border-white { border-color: var(--color-white); }
+ 
+  .heading {
+    @apply uppercase bg-black px-6 py-3 text-white font-extrabold sm:text-[54px] sm:leading-[64px] text-[36px] leading-[46px] max-w-5xl text-center my-5;
+  }
+
+  .text-reset {
+    @apply font-normal normal-case text-inherit bg-transparent p-0 m-0;
+  }
+}
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+    --radius: 0.5rem;
+    --color-primary-100: #FFE8F0;
+    --color-primary: #EE2B69;
+    --color-secondary: #FBE843;
+    --color-black-100: #333333;
+    --color-black-200: #141413;
+    --color-black-300: #7D8087;
+    --color-black: #000000;
+    --color-white-100: #F7F7F7;
+    --color-white: #FFFFFF;
+  }
+
+  .dark {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --color-primary-100: #FFE8F0;
+    --color-primary: #EE2B69;
+    --color-secondary: #FBE843;
+    --color-black-100: #333333;
+    --color-black-200: #141413;
+    --color-black-300: #7D8087;
+    --color-black: #000000;
+    --color-white-100: #F7F7F7;
+    --color-white: #FFFFFF;
+  }
+
+  /* Custom screen sizes */
+  @media (min-width: 475px) {
+    :root {
+      --screen-xs: 475px;
+    }
+  }}

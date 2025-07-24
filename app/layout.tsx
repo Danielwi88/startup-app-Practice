@@ -4,7 +4,12 @@ import Navbar from "./components/Navbar";
 import { Work_Sans } from "next/font/google";
 
 
-const workSans = Work_Sans({ subsets: ["latin"], variable: "--font-work-sans" });
+const workSans = Work_Sans({
+  subsets: ['latin'],
+  variable: '--font-work-sans',
+  display: 'swap',
+  weight: ['400', '500', '700'], // Only include what you use!
+});
 
 export const metadata = {
   title: "My Next.js App",
