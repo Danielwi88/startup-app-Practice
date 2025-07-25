@@ -1,19 +1,11 @@
-// Navbar.tsx
 import { auth } from "@/auth"
 import { signIn, signOut } from "@/auth"
 import Image from "next/image"
 import Link from "next/link"
 
-export async function handleSignIn() {
-  'use server'
-  await signIn('github')
-}
-
 export async function handleSignOut() {
   'use server'
-  await signOut({
-    redirectTo: "/", 
-  })
+  await signOut({ redirectTo: "/" })
 }
 
 const Navbar = async () => {
@@ -42,9 +34,21 @@ const Navbar = async () => {
               </Link>
             </>
           ) : (
-            <form action={handleSignIn}>
-              <button type="submit">Login</button>
-            </form>
+            <>
+              <form action={async () => {
+                'use server'
+                await signIn('github')
+              }}>
+                <button type="submit">Login with GitHub</button>
+              </form>
+
+              <form action={async () => {
+                'use server'
+                await signIn('google')
+              }}>
+                <button type="submit">Login with Google</button>
+              </form>
+            </>
           )}
         </div>
       </nav>
