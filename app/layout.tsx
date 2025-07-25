@@ -1,6 +1,6 @@
 import "./globals.css";
 import { ReactNode } from "react";
-import Navbar from "./components/Navbar";
+import Navbar from "../components/Navbar";
 import { Work_Sans } from "next/font/google";
 
 
